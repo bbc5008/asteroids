@@ -1,5 +1,6 @@
 import pygame
 from constants import *
+from player import *
 
 def main():
     if not pygame.get_init():
@@ -12,12 +13,15 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
 
+    player_avatar = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-            
+        
+        player_avatar.draw(screen)
         screen.fill(pygame.Color(0, 0, 0))
         pygame.display.flip()
 

@@ -1,4 +1,5 @@
 import pygame
+import sys
 from constants import *
 from player import Player
 from asteroid import Asteroid
@@ -32,6 +33,11 @@ def main():
         #player_avatar.update(dt)
         for object in updateable_group:
             object.update(dt)    
+
+        for asteroid in asteroids_group:
+            if asteroid.collision_check(player_avatar):
+                print("GAME OVER!")
+                sys.exit()
 
         #draw stuff
         screen.fill('black')

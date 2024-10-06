@@ -49,7 +49,7 @@ def main():
             for shot in shot_group:
                 if asteroid.collision_check(shot): 
                     shot.kill()
-                    asteroid.kill()
+                    asteroid.split()
             
         
 

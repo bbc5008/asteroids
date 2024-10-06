@@ -28,10 +28,11 @@ class Player(CircleShape):
         self.position += forward * PLAYER_SPEED * dt
 
     def shoot(self):
-        if self.shot_countdown <= 0: 
-            bullet = Shot(self.position.x, self.position.y)
-            bullet.velocity = pygame.Vector2(0, 1).rotate(self.rotation) * SHOT_SPEED
-            self.shot_countdown = .3
+        if self.shot_countdown > 0: 
+            return
+        bullet = Shot(self.position.x, self.position.y)
+        bullet.velocity = pygame.Vector2(0, 1).rotate(self.rotation) * SHOT_SPEED
+        self.shot_countdown = .3
 
 
     def update(self, dt):
